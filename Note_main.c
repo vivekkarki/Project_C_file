@@ -21,7 +21,7 @@ int main()
         exit(EXIT_FAILURE);
        }
 
-    
+    getchar();
     printf("To End  Writing on  File  Press Ctrl + D \n");
     printf("Write From Here : \n");
     
