@@ -9,7 +9,8 @@ int main()
     char data[SIZE];
     char fname[128];
     FILE * fPtr;
-
+    char *ch;
+    char c;
     printf("Enter text file name\n"); 
     scanf("%s",fname);
     strcat(fname,".txt");
@@ -22,19 +23,31 @@ int main()
        }
 
     getchar();
-    printf("To End  Writing on  File  Press Ctrl + D \n");
+    printf("PRESS :wq to save and exit \n");
     printf("Write From Here : \n");
     
     while(1){
     	
     fgets(data, SIZE, stdin);
+    ch = data;
+    while(*ch != '\n' &&  *ch != '\0') {
+        ++ch;
+        }
+      if (*ch) {
+        *ch = '\0';
+        } 
+	  else {        
+        while ((c = getchar()) != '\n' && c != EOF)
+            continue;
+        }
     
-    if(feof(stdin))
-    {
-      break;
-    }
+   if (strcmp(data, ":wq") == 0)
+        {
+            break;
+        }
+    fputs(data,fPtr);
+    fputs("\n", fPtr);
     
-    fputs(data, fPtr);
   } 
 
     fclose(fPtr);
