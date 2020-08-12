@@ -7,12 +7,12 @@
 int main()
 {
     char data[SIZE];
-    char fname[5];
+    char fname[128];
     FILE * fPtr;
     char *ch;
     char c;
     printf("Enter text file name\n"); 
-    scanf("%5s",fname);
+    scanf("%128s",fname);
     strcat(fname,".txt");
     fPtr = fopen(fname, "w");
     
