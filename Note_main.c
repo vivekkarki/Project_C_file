@@ -7,12 +7,12 @@
 int main()
 {
     char data[SIZE];
-    char fname[128];
+    char fname[5];
     FILE * fPtr;
     char *ch;
     char c;
     printf("Enter text file name\n"); 
-    scanf("%s",fname);
+    scanf("%5s",fname);
     strcat(fname,".txt");
     fPtr = fopen(fname, "w");
     
@@ -21,8 +21,9 @@ int main()
         printf("Can't create file.\n");
         exit(EXIT_FAILURE);
        }
-
-    getchar();
+    while ((c = getchar()) != '\n' && c != EOF)
+            continue;
+    
     printf("PRESS :wq to save and exit \n");
     printf("Write From Here : \n");
     
